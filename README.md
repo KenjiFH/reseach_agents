@@ -1,1 +1,1 @@
-A simple RAG Research workflow using multiple agents (researcher, synthesizer, evaluator)
+A simple RAG Research workflow wrapped in a streamlit UI using multiple agents (researcher, synthesizer, evaluator). 
