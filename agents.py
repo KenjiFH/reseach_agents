@@ -82,6 +82,9 @@ def create_multi_agent_workflow(retriever):
     # ==========================================
     # Build the Graph
     # ==========================================
+
+    # we use Stategraph for Deterministic Routing (LLM doesnt get to decide which agent to use), as well as for extensibility -
+    #if we want a new feature we just add a new node (eg., "translator")
     workflow = StateGraph(RAGState)
 
     workflow.add_node("researcher", researcher_node)
@@ -93,5 +96,5 @@ def create_multi_agent_workflow(retriever):
     workflow.add_edge("researcher", "synthesizer")
     workflow.add_edge("synthesizer", "evaluator")
     workflow.add_edge("evaluator", END)
-
+    
     return workflow.compile()
